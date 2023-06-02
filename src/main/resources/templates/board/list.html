@@ -7,8 +7,12 @@
 		<link rel="stylesheet" href="/css/common.css">
 	</head>
 	<body>
-		<h1>게시판</h1>
-		<a href="/board/new">글쓰기</a>
+        <h1>게시글페이지</h1>
+	<div class="wrap view-size">
+		<p class="tit">게시글</p>
+		<div class="sub flex end">
+			<a href="/board/new">글쓰기</a>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -29,6 +33,7 @@
 						<a th:href="|/board/${dto.bno}|" th:text="${dto.title}">제목data</a>
 						<a th:href="@{ '/board/'+ ${dto.bno} }" th:text="${dto.title}">제목data</a>
 					</td>
+					<td th:text="${dto.readCount}">조회수data</td>
 					<td >
 						<span th:if="${dto.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${#temporals.format(dto.updatedDate, 'HH : mm : ss')}">오늘인경우 시간만</span>
 						<span th:unless="${dto.updatedDate.toLocalDate() eq #temporals.createToday()}" th:text="${dto.updatedDate.toLocalDate()}">오늘이 아니면 날짜만</span>
@@ -36,5 +41,6 @@
 				</tr>
 			</tbody>
 		</table>
-	</body>
+	</div>
+    </body>
 </html>

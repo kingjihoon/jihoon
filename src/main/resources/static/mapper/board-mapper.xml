@@ -4,8 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.nowon.mapper.BoardMapper">
 	<insert id="save">
-		insert into jihoon_board(title,writer,content)
-		values(#{title},#{writer},#{content})
+		insert into jihoon_board(title,content)
+		values(#{title},#{content})
 	</insert>
 	<select id="findAll"  resultType="com.green.nowon.dto.BoardDTO">
 		select * from jihoon_board order by bno desc
